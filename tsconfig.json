@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "module": "es2015",
+        "target": "es2015",
+        "sourceMap": true,
+        "jsx": "react",
+        "noImplicitAny": true,
+        "rootDir": "src",
+        "outDir": "./build/",
+        "preserveConstEnums": true,
+        "removeComments": true,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "allowJs": true,
+        "typeRoots": [
+            "/types"
+        ]
+    },
+    "exclude": [
+        "node_modules",
+        "types",
+        "build",
+        "webpack.config.js"
+    ]
+}
