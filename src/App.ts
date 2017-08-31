@@ -1,5 +1,6 @@
 import p5, {
-    p5sketch
+    p5sketch,
+    Vector
 } from 'p5';
 
 import { IGame } from './Games/Interfaces/IGame';
@@ -11,7 +12,7 @@ import { Minesweeper } from './Games/Minesweeper';
     let p5proj = new p5((p: p5sketch) => {
         console.log("Begin p5 project, sketch initialised.");
 
-        console.log("Assignin current game class.");
+        console.log("Assigning current game class.");
         let game: IGame = new Minesweeper(p);
         console.log("Game assigned.");
 
@@ -26,6 +27,9 @@ import { Minesweeper } from './Games/Minesweeper';
 
         p.draw = function () {
             game.render();
+
+            p.createVector(10, 10);
+            let v = new p5.Vector(20, 20);
         }
     });
 })();

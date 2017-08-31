@@ -109,9 +109,20 @@ declare module "p5" {
         sqrt(value: number): number;
         random(min?: number, max?: number): number;
         random(choices: number[]): number;
+
+        // Vectors
+        createVector(x: number, y: number, z?: number): Vector;
     }
 
     export default class p5 {
         constructor(sketch: (p: any) => void);
+
+        public static Vector(x: number, y: number, z?: number): Vector;
+    }
+
+    export class Vector {
+        x: number;
+        y: number;
+        z: number;
     }
 }
