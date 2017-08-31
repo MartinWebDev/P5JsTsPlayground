@@ -28,8 +28,9 @@ import { Minesweeper } from './Games/Minesweeper';
         p.draw = function () {
             game.render();
 
-            p.createVector(10, 10);
-            let v = new p5.Vector(20, 20);
+            let test = p.createVector(10, 10);
+            console.log([test.x, test.y, test.z]);
+            //let v = new p5.Vector(20, 20);
         }
     });
 })();
