@@ -2,30 +2,30 @@ import p5, {
     p5sketch
 } from 'p5';
 
+import { IGame } from './Games/Interfaces/IGame';
+import { Minesweeper } from './Games/Minesweeper';
+
 (() => {
-    console.log("I think this works");
+    console.log("Init bootstrapper.");
+
+    let p5proj = new p5((p: p5sketch) => {
+        console.log("Begin p5 project, sketch initialised.");
+
+        console.log("Assignin current game class.");
+        let game: IGame = new Minesweeper(p);
+        console.log("Game assigned.");
+
+        p.setup = function () {
+            console.log("Creating canvas...");
+            p.createCanvas(game.getCanvasWidth(), game.getCanvasWidth());
+            p.background(game.getCanvasBackgroundColor());
+            console.log("Canvas created.");
+
+            game.setup();
+        }
+
+        p.draw = function () {
+            game.render();
+        }
+    });
 })();
-
-var p5proj = new p5((p: p5sketch) => {
-    var w = 200;
-    var h = 200;
-
-    p.setup = function () {
-        p.createCanvas(w, h);
-    }
-
-    p.draw = function () {
-        p.background(150);
-        p.background("#FFEEDD");
-
-        p.textAlign(p.CENTER, p.CENTER);
-        p.textSize(20);
-        p.fill("#333");
-        p.noStroke();
-        p.text("Hello world" + p.abs(-10).toString(), p.width / 2, p.height / 2);
-
-        p.fill("#EEDDFF");
-        p.stroke(0);
-        p.rect(10, 10, 10, 10);
-    }
-});
