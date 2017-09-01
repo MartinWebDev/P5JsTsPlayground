@@ -46,7 +46,7 @@ export class Minesweeper implements IGame {
         return (this.rows * this.cellSize) + 1;
     }
 
-    getCanvasBackgroundColor(): number {
+    getCanvasBackgroundColor(): number | string | number[][][] | number[][][][] {
         return 220;
     }
 

@@ -53,6 +53,7 @@ declare module "p5" {
         background(greyscaleValue: number, alpha?: number): void;
         background(hexValue: string, alpha?: number): void;
         background(r: number, g: number, b: number, alpha?: number): void;
+        background(img: Image): void;
         //TODO: Allow usage of image object after added TS interface for image
 
         // Stroke and fill control
@@ -90,6 +91,9 @@ declare module "p5" {
         textSize(size: number): void;
         textAlign(horizAlign: string, vertAlign?: string): void;
 
+        // Images
+        loadImage(url: string, successFn: (img: Image) => void, failureFn: (e: Event) => void): void;
+
         // Events - Mouse
         mouseClicked(): void;
         mousePressed(): void;
@@ -117,12 +121,20 @@ declare module "p5" {
     export default class p5 {
         constructor(sketch: (p: any) => void);
 
-        public static Vector(x: number, y: number, z?: number): Vector;
+        //public static Vector(x: number, y: number, z?: number): Vector;
     }
 
     export class Vector {
         x: number;
         y: number;
         z: number;
+
+        // TODO: Vector has lot of thing that need adding here
+
+        //add(): void;
+    }
+
+    export class Image {
+        // TODO: Image has lot of thing that need adding here
     }
 }

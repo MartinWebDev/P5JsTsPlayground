@@ -1,10 +1,13 @@
 import p5, {
     p5sketch,
-    Vector
+    Vector,
+    Image
 } from 'p5';
 
 import { IGame } from './Games/Interfaces/IGame';
 import { Minesweeper } from './Games/Minesweeper';
+import { AttractionPhysics } from './Games/AttractionPhysics';
+import { TexasHoldem } from './Games/TexasHoldem';
 
 (() => {
     console.log("Init bootstrapper.");
@@ -13,13 +16,15 @@ import { Minesweeper } from './Games/Minesweeper';
         console.log("Begin p5 project, sketch initialised.");
 
         console.log("Assigning current game class.");
-        let game: IGame = new Minesweeper(p);
+        //let game: IGame = new Minesweeper(p);
+        //let game: IGame = new AttractionPhysics(p);
+        let game: IGame = new TexasHoldem(p);
         console.log("Game assigned.");
 
         p.setup = function () {
             console.log("Creating canvas...");
             p.createCanvas(game.getCanvasWidth(), game.getCanvasWidth());
-            p.background(game.getCanvasBackgroundColor());
+            p.background(game.getCanvasBackgroundColor()); // TODO: Fix the return types on interfaces so no longer have to specify "as" here.
             console.log("Canvas created.");
 
             game.setup();
@@ -27,10 +32,6 @@ import { Minesweeper } from './Games/Minesweeper';
 
         p.draw = function () {
             game.render();
-
-            let test = p.createVector(10, 10);
-            console.log([test.x, test.y, test.z]);
-            //let v = new p5.Vector(20, 20);
         }
     });
 })();
