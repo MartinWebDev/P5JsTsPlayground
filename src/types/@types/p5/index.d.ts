@@ -44,12 +44,16 @@ declare module "p5" {
         LEFT_ARROW: number;
         RIGHT_ARROW: number;
 
+        // Rendering
+        P2D: string;
+        WEBGL: string;
+
         // Main functions
         setup(): void;
         draw(): void;
 
         // Canvas and canvas control
-        createCanvas(width: number, height: number): void;
+        createCanvas(width: number, height: number, renderer?: string): void;
         background(greyscaleValue: number, alpha?: number): void;
         background(hexValue: string, alpha?: number): void;
         background(r: number, g: number, b: number, alpha?: number): void;
@@ -91,8 +95,10 @@ declare module "p5" {
         textSize(size: number): void;
         textAlign(horizAlign: string, vertAlign?: string): void;
 
-        // Images
-        loadImage(url: string, successFn: (img: Image) => void, failureFn: (e: Event) => void): void;
+        // Images, textures, materials
+        loadImage(url: string, successFn?: (img: Image) => void, failureFn?: (e: Event) => void): Image; // TODO: WHAT?! This can return either void or image depending on mode??
+
+        texture(tex: Image): void;
 
         // Events - Mouse
         mouseClicked(): void;

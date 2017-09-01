@@ -23,7 +23,7 @@ import { TexasHoldem } from './Games/TexasHoldem';
 
         p.setup = function () {
             console.log("Creating canvas...");
-            p.createCanvas(game.getCanvasWidth(), game.getCanvasWidth());
+            p.createCanvas(game.getCanvasWidth(), game.getCanvasHeight());
             p.background(game.getCanvasBackgroundColor()); // TODO: Fix the return types on interfaces so no longer have to specify "as" here.
             console.log("Canvas created.");
 
